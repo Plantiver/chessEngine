@@ -5,6 +5,7 @@
 #include "board.h"
 #include "piece.h"
 
+
 int main() {
     SDL_Window* window = NULL;
     SDL_Renderer* renderer = NULL;
