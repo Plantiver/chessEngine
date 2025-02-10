@@ -32,11 +32,11 @@ for i in range(num_pieces):
     top_black = piece_height
     bottom_black = img_height
 
-    #white_piece = img.crop((left, top_white, right, bottom_white))
+    white_piece = img.crop((left, top_white, right, bottom_white))
     black_piece = img.crop((left, top_black, right, bottom_black))
     
-    #white_piece.save(f"./assets2/{notation[i].upper()}.png")  # Majuscule pour blanc
-    black_piece.save(f"./assets/{notation[i]}.png")  # Minuscule pour noir
+    white_piece.save(f"./assets/{notation[i]}w.png")  # Majuscule pour blanc
+    black_piece.save(f"./assets/{notation[i]}b.png")  # Minuscule pour noir
 
 print("Découpage terminé !")
 

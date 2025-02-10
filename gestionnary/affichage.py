@@ -11,19 +11,21 @@ squareColor = {
     0:(26,26,26),
     1:(229,229,229)
 }
+boardPos = (mid[0]-4*squareSize, mid[1]-4*squareSize)
+
 pieces_images = {
-    "P": pg.image.load("P.png"),
-    "p": pg.image.load("p.png"),
-    "N": pg.image.load("N.png"),
-    "n": pg.image.load("n.png"),
-    "B": pg.image.load("B.png"),
-    "b": pg.image.load("b.png"),
-    "R": pg.image.load("R.png"),
-    "r": pg.image.load("r.png"),
-    "Q": pg.image.load("Q.png"),
-    "q": pg.image.load("q.png"),
-    "K": pg.image.load("K.png"),
-    "k": pg.image.load("k.png"),
+    "P": pg.image.load("./assets/pw.png"),
+    "p": pg.image.load("./assets/pb.png"),
+    "N": pg.image.load("./assets/nw.png"),
+    "n": pg.image.load("./assets/nb.png"),
+    "B": pg.image.load("./assets/bw.png"),
+    "b": pg.image.load("./assets/bb.png"),
+    "R": pg.image.load("./assets/rw.png"),
+    "r": pg.image.load("./assets/rb.png"),
+    "Q": pg.image.load("./assets/qw.png"),
+    "q": pg.image.load("./assets/qb.png"),
+    "K": pg.image.load("./assets/kw.png"),
+    "k": pg.image.load("./assets/kb.png"),
 }
 
 
@@ -37,21 +39,21 @@ def main():
     while running:
         clock.tick(100)
         
-        running = eventGestionnary(pg.event.get())
+        for e in pg.event.get():
+            if e.type == pg.QUIT:
+                running = False
+            if e.type == pg.MOUSEBUTTONDOWN:
+                if e.button == 1:
+                    mouse_x, mouse_y = e.pos
+                    file = (mouse_x - boardPos[0]) // squareSize
+                    rank = 7 - (mouse_y - boardPos[1]) // squareSize
+                    if 0<=file<=7 and 0<=rank<=7:
+                        pass
         
         affichage(display, board)
         pg.display.flip()
     pg.quit()
 
-def eventGestionnary(events:list[pg.event.Event]):
-    for e in events:
-        if e.type == pg.QUIT:
-            return False
-    return True
-
-import pygame as pg
-
-# Dictionnaire associant chaque caractère FEN à son image
 
 
 def affichage(screen: pg.Surface, board: c.Board):
@@ -76,8 +78,6 @@ def affichage(screen: pg.Surface, board: c.Board):
                     screen.blit(piece_img, (x, y))
                 file_index += 1
 
-    
-    
 
 if __name__ == "__main__":
     main()
