@@ -1,0 +1,11 @@
+en gros, il y aura plusieur fichier, un pour chaque interface
+On aura bien sûr la page d'accueil dans home.py
+une page pour travailler ses ouvertures: ouverture.py
+une page avec juste un jeu d'échec: board.py
+une autre avec un gestionnaire des databases
+une autre pour faire des combats de bots
+une autre pour combattre un bots
+
+
+
+
