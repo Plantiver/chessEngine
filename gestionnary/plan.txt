@@ -7,5 +7,5 @@ une autre pour faire des combats de bots
 une autre pour combattre un bots
 
 
-
+Mais en attendant, je fais juste un fichié python impropre `affichage.py`, pour voir ce que j'y fait avec l'engine en C
 
